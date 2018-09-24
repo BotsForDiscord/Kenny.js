@@ -29,18 +29,23 @@ module.exports=(async (message) => {
 			case "developer":
 				if(!config.developers.includes(message.author.id)) return message.reply("Sorry, only developers can view these commands!");
 				var data = {
-					title:"<:bfdmoderator:374215795619659776> Moderation Commands",
+					title:"<:bfdwebsitebot:416375786971463690> Developer Commands",
 					color: 431123,
 					timestamp: new Date().toISOString(),
 					footer: {
 						text: "Bot Made By Donovan_DMC#1337"
 					},
 					fields: [
-					{
-						name: ":hammer: **Eval**",
-						value: `Description: Evaluate some code.\nUsage: **${config.prefix}eval <code>**\nRequires hardcoded bot developer.`,
-						inline: false
-					}
+						{
+							name: ":keyboard: **Eval**",
+							value: `Description: Evaluate some code.\nUsage: **${config.prefix}eval <code>**\nRequires hardcoded bot developer.`,
+							inline: false
+						},
+						{
+							name: " **Reload**",
+							value: `Description: Evaluate Reload some or all parts of the bot.\nUsage: **${config.prefix}reload [rtype]**\nRequires hardcoded bot developer.`,
+							inline: false
+						}
 					]
 				};
 				var embed = new Discord.RichEmbed(data);
@@ -141,6 +146,10 @@ module.exports=(async (message) => {
 					},{
 						name: ":underage:  **NSFW**",
 						value: `Description: Hide or show NSFW channels.\nUsage: **${config.prefix}nsfw**`,
+						inline: false
+					},{
+						name: "Am I Staff",
+						value: `Description: I don't know, are you? run this to quickly check.\nUsage: **${config.prefix}amistaff**`,
 						inline: false
 					}
 					]
