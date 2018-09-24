@@ -1,0 +1,28 @@
+{
+  "name": "kenny",
+  "version": "3.0.0",
+  "description": "Main moderation bot for Bots For Discord!",
+  "main": "bot.js",
+  "dependencies": {
+    "console-colors-2": "^1.0.2",
+    "discord.js": "^11.4.2",
+    "fs": "0.0.1-security",
+    "prettytable": "^0.3.1",
+    "rethinkdbdash": "^2.3.31",
+    "util": "^0.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FurryBotCo/BFDKenny.git"
+  },
+  "author": "Donovan_DMC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FurryBotCo/BFDKenny/issues"
+  },
+  "homepage": "https://github.com/FurryBotCo/BFDKenny#readme"
+}
