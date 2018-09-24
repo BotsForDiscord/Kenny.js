@@ -1,5 +1,5 @@
 @echo off
-title Kenny Beta
+title Kenny
 cd %~dp0
 :start
 node bot.js --expose-gc

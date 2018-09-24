@@ -7,7 +7,7 @@ config = {
 	get rootDir() {
 		return path.dirname(require.main.filename);
 	},
-	get beta() {return os.hostname === "FURRYBOT-SERVER"?false:true;},
+	get beta() {return os.hostname() === "FURRYBOT-SERVER"?false:true;},
 	customPrefix: false,
 	get prefix() {
 		return this.customPrefix?this.customPrefix:this.beta?"&":"$";
