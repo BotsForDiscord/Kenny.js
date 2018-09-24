@@ -4,19 +4,14 @@ module.exports=(async (message) => {
 	if (config.developers.indexOf(message.author.id) == -1) {
 		return message.reply("You cannot run this command as you are not a bot owner.");
 	}
-	var ty=new RegExp(/^(((command|cmd|c)?[s]?(module|m)?[s]?(list|l)?[s]?)||all)$/gi);
+	var ty=new RegExp(/^(((module|m)?[s]?(list|l)?[s]?)||all)$/gi);
 	if(args.join("").length == 0) {
-		var type="cl";
+		var type="all";
 	} else {
 		if(!ty.test(args.join(""))) return message.reply("Invalid type");
 		var type=args.join("");
 	}
-	switch(true) {
-		case new RegExp(/^(command|cmd|c)[s]?(list|l)?$/gi).test(type):
-			message.reply("Reloading command list..");
-			global.reloadCommands();
-			break;
-			
+	switch(true) {			
 		case new RegExp(/^((command|cmd|c)(module|m))[s]?$/gi).test(type):
 			message.reply("Reloading command/custom modules..");
 			global.reloadCommandModules();

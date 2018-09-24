@@ -4,27 +4,30 @@ module.exports=(async (message) => {
 	
 	var pt = new PrettyTable();
 	
-	var isStaff = staff;
-	var canUseReason = isStaff?":white_check_mark:":":x:";
-	var canUseModlog = isStaff?":white_check_mark:":":x:";
-	var canUseSay = isStaff?":white_check_mark:":":x:";
-	var canKick = message.member.hasPermission("KICK_MEMBERS")?":white_check_mark:":":x:";
-	var canBan = message.member.hasPermission("BAN_MEMBERS")?":white_check_mark:":":x:";
-	var canMute = message.member.hasPermission("MANAGE_MESSAGES")?":white_check_mark:":":x:";
-	var canPurge = message.member.hasPermission("MANAGE_MESSAGES")?":white_check_mark:":":x:";
-	var isAdmin = message.member.hasPermission("ADMINISTRATOR")?":white_check_mark:":":x:";
-	var isDev = config.developers.includes(message.author.id)?":white_check_mark:":":x:";
+	pt.fieldNames(["Permission","Yes/No"]);
 	
-	var m = `You are ${isStaff?"":"Not"} a staff member.
-	Permissions:\n
-	Edit Mod Logs ${canUseReason}
-	Grab Cases ${canUseModlog}
-	Use "Say" Command ${canUseSay}
-	Kick ${canKick}
-	Ban ${canBan}
-	Mute ${canMute}
-	Purge: ${canPurge}
-	Admin: ${isAdmin}
-	Developer: ${isDev}`;
-	return message.reply(m);
+	var isStaff = staff;
+	var canUseReason = isStaff?"Yes":"No";
+	var canUseModlog = isStaff?"Yes":"No";
+	var canUseSay = isStaff?"Yes":"No";
+	var canKick = message.member.hasPermission("KICK_MEMBERS")?"Yes":"No";
+	var canBan = message.member.hasPermission("BAN_MEMBERS")?"Yes":"No";
+	var canMute = message.member.hasPermission("MANAGE_MESSAGES")?"Yes":"No";
+	var canPurge = message.member.hasPermission("MANAGE_MESSAGES")?"Yes":"No";
+	var isAdmin = message.member.hasPermission("ADMINISTRATOR")?"Yes":"No";
+	var isDev = config.developers.includes(message.author.id)?"Yes":"No";
+	
+	pt.addRow(['Edit Mod Logs',canUseReason]);
+	pt.addRow(['Grab Cases',canUseModlog]);
+	pt.addRow(['Use "say" command',canUseSay]);
+	pt.addRow(['Kick',canKick]);
+	pt.addRow(['Ban/Unban',canBan]);
+	pt.addRow(['Mute/Unmute',canMute]);
+	pt.addRow(['Purge',canPurge]);
+	pt.addRow(['Admin',isAdmin]);
+	pt.addRow(['Developer',isDev]);
+	
+	var m = `You are ${isStaff?"":"Not"} a staff member.\nHere's some permission info:`;
+	message.reply(m);
+	return message.channel.send(pt.toString(),{code:"css"});
 });

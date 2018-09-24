@@ -8,6 +8,7 @@ global.config = require("./config.js");
 global.logger = require("./utility/logger.js");
 global.r = require("./db.js");
 global.PrettyTable = require("prettytable");
+global.os = require("os");
 
 global.constructModLog = ((author,member,act,reason)=>{
 	if(!author) throw new Error("missing author");
@@ -68,7 +69,7 @@ global.constructModLog = ((author,member,act,reason)=>{
 		]
 	};
 	var embed = new Discord.RichEmbed(data);
-
+});
 
 global.reloadCommandModules=(()=>{
 	for(var key in require.cache){

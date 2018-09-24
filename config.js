@@ -1,12 +1,13 @@
 const fs = require("fs");
 const token = fs.readFileSync("./token.txt","UTF8");
 const path = require("path");
+const os = require("os");
 
 config = {
 	get rootDir() {
 		return path.dirname(require.main.filename);
 	},
-	beta: false,
+	get beta() {return os.hostname === "FURRYBOT-SERVER"?false:true;},
 	customPrefix: false,
 	get prefix() {
 		return this.customPrefix?this.customPrefix:this.beta?"&":"$";
