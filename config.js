@@ -15,6 +15,7 @@ config = {
 	roles: {
 		bot: "374075473669521408",
 		verifiedBot: "374083302237274113",
+		// change to just second value in prod.
 		get muted() {return this.beta?"488467613798891522":"379424100801576960"},
 		get mutedBot() {return this.beta?"488467671805984778":"491333600684277760"},
 		get trialModerator() {return this.beta?"493890812791488523":"411965769316958209"},
@@ -25,18 +26,16 @@ config = {
 	},
 	allowedGuilds: [
 		// MCPro Private Bot Testing
+		
+		// remove in prod.
 		"329498711338123268",
 		
 		// Bots For Discord
 		"374071874222686211",
 		
 		// Bots For Discord Staff
-		"374074135506190349",
-		
-		// BFD Bot Testing Center
-		"493793746358501396",
+		"374074135506190349"
 	],
-	modLogs: "491324642166964227",
 	developers: [
 		//Habchy#1665
 		"162780049869635584",
