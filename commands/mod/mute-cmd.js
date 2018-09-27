@@ -79,7 +79,7 @@ module.exports=(async (message) => {
 				m.edit(new Discord.RichEmbed(m.embeds[0]).setFooter(`Case ID: ${m.id}`));
 			}
 		}).then(async()=>{
-			message.reply(`Done. Check <#${config.modLogs}>.`);
+			message.reply(`Done. Check ${modlog}.`);
 			// add something here to message bot devs
 		})
 		.catch(e=>{
@@ -93,7 +93,7 @@ module.exports=(async (message) => {
 				m.edit(new Discord.RichEmbed(m.embeds[0]).setFooter(`Case ID: ${m.id}`));
 			}
 		}).then(async()=>{
-			message.reply(`Done. Check <#${config.modLogs}>.`);
+			message.reply(`Done. Check ${modlog}.`);
 			await member.user.send(`You were muted in **${message.guild.name}** (${message.guild.id}) by **${message.author.tag}** (${message.author.id})\nReason: ${reason}`)
 		})
 		.catch(e=>{

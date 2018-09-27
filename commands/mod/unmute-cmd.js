@@ -80,7 +80,7 @@ module.exports=(async (message) => {
 				m.edit(new Discord.RichEmbed(m.embeds[0]).setFooter(`Case ID: ${m.id}`));
 			}
 		}).then(async()=>{
-			message.reply(`Done. Check <#${config.modLogs}>.`);
+			message.reply(`Done. Check ${modlog}.`);
 		})
 		.catch(e=>{
 			message.reply(`I couldn't ${command} ${member.tag} because of: ${e}`);
@@ -93,7 +93,7 @@ module.exports=(async (message) => {
 				m.edit(new Discord.RichEmbed(m.embeds[0]).setFooter(`Case ID: ${m.id}`));
 			}
 		}).then(async()=>{
-			message.reply(`Done. Check <#${config.modLogs}>.`);
+			message.reply(`Done. Check ${modlog}.`);
 		})
 		.catch(e=>{
 			message.reply(`I couldn't ${command} ${member.tag} because of: ${e}`);

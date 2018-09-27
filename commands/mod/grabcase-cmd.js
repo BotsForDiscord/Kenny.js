@@ -4,15 +4,15 @@ module.exports=(async (message) => {
 	if(!staff) return message.reply(`Sorry, but you must be staff to use this!`);
 	
 	var log=args[0];
-	if(!log) return message.reply(`Please list a valid case number from <#${config.modLogs}>`);
+	if(!log) return message.reply(`Please list a valid case number from ${modlog}`);
 	
 	var ch=message.guild.channels.find(t=>t.name=="mod-log");
 	if(ch === null) return message.reply("Server does not appear to have a mod log.");
 	var m=await ch.fetchMessage(log);
-	if(!m) return message.reply(`Please list a valid case number from <#${config.modLogs}>`);
+	if(!m) return message.reply(`Please list a valid case number from ${modlog}`);
 	
 	var c=m.embeds[0];
-	if(!c) return message.reply(`Please list a valid case number from <#${config.modLogs}>`);
+	if(!c) return message.reply(`Please list a valid case number from ${modlog}`);
 	var d=Object.assign({},c);
 	var modCase = {
 		action: c.title,

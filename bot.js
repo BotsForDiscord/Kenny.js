@@ -69,6 +69,8 @@ global.constructModLog = ((author,member,act,reason)=>{
 		]
 	};
 	var embed = new Discord.RichEmbed(data);
+	
+	return embed;
 });
 
 global.reloadCommandModules=(()=>{
@@ -126,6 +128,19 @@ client.on("guildMemberAdd", async(member) => {
 	  }catch(e){
 		  client.user.setActivity(`Bots For Discord`,{type:"WATCHING"});
 	  }
+	if(!member.user.bot) return;
+  switch(member.guild.id) {
+	  // staff
+	case "374074135506190349":
+		member.addRole(config.roles.staffBotRole,"Bot autorole");
+		break;
+	
+	// regular
+	case "374071874222686211":
+		member.addRole(config.roles.bot,"Bot autorole");
+		break;
+  }
+			
 });
 
 client.on("guildMemberRemove", async(member) => {
@@ -137,7 +152,7 @@ client.on("guildMemberRemove", async(member) => {
 	  }
 });
 
-client.on("guildMemberUpdate", async(oldMember,newMember) => {
+/*client.on("guildMemberUpdate", async(oldMember,newMember) => {
 	if(!oldMember || !newMember) return;
 	var oldRoles = oldMember.roles.map(t=>t.id);
 	var newRoles = newMember.roles.map(t=>t.id);
@@ -178,13 +193,13 @@ client.on("guildMemberUpdate", async(oldMember,newMember) => {
 			
 		}
 	}
-});
+});*/
 
 client.on("message", async (message)=> {
     if ((!message || !message.guild) || (!config.allowedGuilds.includes(message.guild.id) || message.author.bot || message.content.indexOf(config.prefix) === -1)) return;
     var args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     var command = args.shift().toLowerCase();
-	var staff = message.member.roles.some(t=>[config.roles.moderator,config.roles.trialModerator].includes(t.id)) || message.member.hasPermission("ADMINISTRATOR");
+	var staff = message.member.roles.some(t=>config.staffRoles.includes(t.name)) || message.member.hasPermission("ADMINISTRATOR");
 	
 	if(!config.commandList.all.list.includes(command)) return;
 	

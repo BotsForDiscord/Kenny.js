@@ -49,7 +49,7 @@ module.exports=(async (message, gConfig) => {
 			m.edit(new Discord.RichEmbed(m.embeds[0]).setFooter(`Case ID: ${m.id}`));
 		}
 	}).then(async()=>{
-		message.reply(`Done. Check <#${config.modLogs}>.`);
+		message.reply(`Done. Check ${modlog}.`);
 	})
 	.catch(e=>{
 		message.channel.send(`Sorry, ${message.member}. I couldn't ${command} ${member.user.tag} because of: ${e}`);

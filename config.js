@@ -22,7 +22,8 @@ config = {
 		get moderator() {return this.beta?"493890737226776577":"475404548136239115"},
 		hideNSFW: "407290932644544523",
 		developer: "374082321441226752",
-		verifiedDeveloper: "374083705347637249"
+		verifiedDeveloper: "374083705347637249",
+		staffServerBot: "494526700814729226"
 	},
 	allowedGuilds: [
 		// MCPro Private Bot Testing
@@ -46,6 +47,7 @@ config = {
 		// jacob#0513
 		"310081310335172608"
 	],
+	staffRoles: ["Moderators","Trial Moderators","Managers"],
 	commandList: {
 		get all() {
 			var list=[];
@@ -275,6 +277,7 @@ config = {
 			}
 		}
 	},
+	timeRegex: new RegExp(/^([1-7]{1,1}d)?([1-9]{1,3}h)?([1-9]{1,5}m)?([1-9]{1,7}s)?$/g),
 	token
 };
 
