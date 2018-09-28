@@ -101,7 +101,7 @@ global.reloadAll=(()=>{
 client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   	try {
-		  var botCount=client.guilds.get(config.mainGuild).members.filter(t=>t.user.bot).size;
+		  var botCount=client.guilds.get("374071874222686211").members.filter(t=>t.user.bot).size;
 		  client.user.setActivity(`${botCount} Bots in BFD`,{type:"WATCHING"});
 	  }catch(e){
 		  client.user.setActivity(`Bots For Discord`,{type:"WATCHING"});
@@ -123,7 +123,7 @@ client.on("guildDelete", async (guild) => {
 
 client.on("guildMemberAdd", async(member) => {
 	try {
-		  var botCount=client.guilds.get(config.mainGuild).members.filter(t=>t.user.bot).size;
+		  var botCount=client.guilds.get("374071874222686211").members.filter(t=>t.user.bot).size;
 		  client.user.setActivity(`${botCount} Bots in BFD`,{type:"WATCHING"});
 	  }catch(e){
 		  client.user.setActivity(`Bots For Discord`,{type:"WATCHING"});
@@ -132,7 +132,7 @@ client.on("guildMemberAdd", async(member) => {
   switch(member.guild.id) {
 	  // staff
 	case "374074135506190349":
-		member.addRole(config.roles.staffBotRole,"Bot autorole");
+		member.addRole(config.roles.staffServerBot,"Bot autorole");
 		break;
 	
 	// regular
@@ -145,7 +145,7 @@ client.on("guildMemberAdd", async(member) => {
 
 client.on("guildMemberRemove", async(member) => {
 	  try {
-		  var botCount=client.guilds.get(config.mainGuild).members.filter(t=>t.user.bot).size;
+		  var botCount=client.guilds.get("374071874222686211").members.filter(t=>t.user.bot).size;
 		  client.user.setActivity(`${botCount} Bots in BFD`,{type:"WATCHING"});
 	  }catch(e){
 		  client.user.setActivity(`Bots For Discord`,{type:"WATCHING"});
