@@ -13,7 +13,7 @@ module.exports=(async (message) => {
 	if(!modlog) return;
 	
 	var data = {
-		title: `Messages purged`,
+		title: `Messages Purged`,
 		timestamp: new Date().toISOString(),
 		color: 3911642,
 		fields: [
