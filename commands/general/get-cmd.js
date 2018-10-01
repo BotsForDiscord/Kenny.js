@@ -80,62 +80,52 @@ module.exports=(async (message) => {
 						fields: [
 						]
 					};
-					data.fields.push.apply(data.fields,
-					{
+					data.fields.push({
 						name: "Name",
 						value: response.name,
 						inline: true
 					});
-					data.fields.push.apply(data.fields,
-					{
+					data.fields.push({
 						name: "ID",
 						value: response.id,
 						inline: true
 					});
-					data.fields.push.apply(data.fields,
-					{
+					data.fields.push({
 						name: "Approved",
 						value: response.approved,
 						inline: true
 					});
-					data.fields.push.apply(data.fields,
-					{
+					data.fields.push({
 						name: "Verified",
 						value: response.verified,
 						inline: true
 					});
-					if(typeof response.server_count !== "undefined" && response.server_count !== "") data.fields.push.apply(data.fields,
-					{
+					if(typeof response.server_count !== "undefined" && response.server_count !== "") data.fields.push({
 						name: "Server Count",
 						value: response.server_count,
 						inline: true
 					});
-					data.fields.push.apply(data.fields,
-					{
+					data.fields.push({
 						name: "Prefix",
 						value: response.prefix,
 						inline: true
 					});
-					if(typeof response.library !== "undefined" && response.library !== "") data.fields.push.apply(data.fields,
-					{
+					if(typeof response.library !== "undefined" && response.library !== "") data.fields.push({
 						name: "Library",
 						value: response.library,
 						inline: true
 					});
-					data.fields.push.apply(data.fields,
-					{
+					data.fields.push({
 						name: "Invites",
 						value: inv,
 						inline: false
 					});
-					if(typeof response.github !== "undefined" && response.github !== "") data.fields.push.apply(data.fields,
-					{
+					if(typeof response.github !== "undefined" && response.github !== "") data.fields.push({
 						name: "Github",
 						value: `[${response.github}](${response.github})`,
 						inline: false
 					});
-					data.fields.push.apply(data.fields,
-					{
+					data.fields.push({
 						name: "Description",
 						value: response.short_desc,
 						inline: false
@@ -150,8 +140,7 @@ module.exports=(async (message) => {
 						var ot = "Owner";
 						var ob = `<@!${response.owner.id}>`;
 					}
-					data.fields.push.apply(data.fields,
-					{
+					data.fields.push({
 						name: ot,
 						value: ob,
 						inline: true
