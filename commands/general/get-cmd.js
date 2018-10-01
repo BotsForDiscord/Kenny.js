@@ -75,7 +75,7 @@ module.exports=(async (message) => {
 						author: {
 							name: response.name,
 							icon_url: `https://cdn.discordapp.com/avatars/${response.id}/${response.avatar}.png`
-						}
+						},
 						title: "Bot Info",
 						fields: [
 						]
