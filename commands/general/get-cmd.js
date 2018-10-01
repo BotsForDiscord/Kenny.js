@@ -42,7 +42,7 @@ module.exports=(async (message) => {
 	
 	// user ID
 	if(!isNaN(args[0]) && !(args.length == 0 || !args || message.mentions.members.first())) {
-		var member=message.guild.members.get(args[0]);
+		var member=args[0];
 	}
 	
 	// username
@@ -57,7 +57,7 @@ module.exports=(async (message) => {
 		if(usr instanceof Discord.User) var member=message.guild.members.get(usr.id);
 	}
 	
-	var bot = member.id;
+	var bot = member.id||member;
 	
 	var xhr = new XMLHttpRequest();
 

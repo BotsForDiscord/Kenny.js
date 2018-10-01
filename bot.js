@@ -9,6 +9,7 @@ global.logger = require("./utility/logger.js");
 global.r = require("./db.js");
 global.PrettyTable = require("prettytable");
 global.os = require("os");
+global.XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 global.constructModLog = ((author,member,act,reason)=>{
 	if(!author) throw new Error("missing author");
