@@ -47,7 +47,20 @@ config = {
 		// jacob#0513
 		"310081310335172608"
 	],
-	staffRoles: ["Moderators","Trial Moderators","Managers"],
+	// Regular Staff
+	// Regular Managers
+	// Regular Directors
+	// Staff Moderators
+	// Staff Managers
+	// Staff Directors
+	staffRoles: [
+	"475404548136239115",
+	"374071923157499905",
+	"475412293149261825",
+	"494526611413270568",
+	"494526541888225291",
+	"374074215290109963"
+	],
 	commandList: {
 		get all() {
 			var list=[];

@@ -118,11 +118,12 @@ module.exports=(async (message) => {
 					data.fields.push({
 						name: "Invites",
 						value: inv,
-						inline: false
+						inline: true
 					});
-					if(typeof response.github !== "undefined" && response.github !== "") data.fields.push({
-						name: "Github",
-						value: `[${response.github}](${response.github})`,
+					var links = typeof response.github !== "undefined" && response.github !== ""?`[Github](${response.github})\n[List](https://botsfordiscord.com/bots/${response.id})`:`[List](https://botsfordiscord.com/bots/${response.id})`;
+					data.fields.push({
+						name: "Links",
+						value: links,
 						inline: false
 					});
 					data.fields.push({
@@ -132,13 +133,13 @@ module.exports=(async (message) => {
 					});
 					if(typeof response.owners !== "undefined" && response.owners.length !== 0) {
 						var ot = "Owners";
-						var ob = `Main: <@!${response.owner.id}>`;
+						var ob = `Main: <@!${response.owner}>`;
 						response.owners.forEach((owner)=>{
 							ob = `${ob}\nSecondary:  <@!${owner}>`;
 						});
 					} else {
 						var ot = "Owner";
-						var ob = `<@!${response.owner.id}>`;
+						var ob = `<@!${response.owner}>`;
 					}
 					data.fields.push({
 						name: ot,
