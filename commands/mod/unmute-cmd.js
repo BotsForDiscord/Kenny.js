@@ -41,8 +41,8 @@ module.exports=(async (message) => {
 	//DEFINING MEMBER
 	if (message.mentions.members.first()) member = message.mentions.members.first(); //MENTION
 	else if (message.guild.members.get(args[0])) member = message.guild.members.get(args[0]); //ID
-	else if (message.guild.members.find("username", args[0])) member = message.guild.members.find("username", args[0]); //USERNAME
-	else if (message.guild.members.find("tag", args[0])) member = message.guild.members.find("tag", args[0]) //TAG
+	else if (message.guild.members.find(t=>t.username === args[0])) member = message.guild.members.find(t=>t.username === args[0]); //USERNAME
+	else if (message.guild.members.find(t=>t.tag === args[0])) member = message.guild.members.find(t=>t.tag === args[0]) //TAG
 	else return message.reply("User entered is invalid. Please provide a user MENTION, ID, USERNAME or USERNAME W/ DISCRIMINATOR"); //IF NOTHING TRIGGERED
 	
 	if(message.author.id == member.id) return message.reply(`You cannot ${command} yourself!`);
