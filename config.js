@@ -26,7 +26,7 @@ config = {
 		staffServerBot: "494526700814729226"
 	},
 	channels: {
-		get suggestions() {return this.beta?"490917991354073088":"498950816862830602"}
+		get suggestions() {return this.beta?"498950816862830602":"495331750197854218"}
 	},
 	allowedGuilds: [
 		// MCPro Private Bot Testing
