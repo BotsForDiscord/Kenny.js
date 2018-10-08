@@ -25,6 +25,9 @@ config = {
 		verifiedDeveloper: "374083705347637249",
 		staffServerBot: "494526700814729226"
 	},
+	channels: {
+		get suggestions() {return this.beta?"490917991354073088":"498950816862830602"}
+	},
 	allowedGuilds: [
 		// MCPro Private Bot Testing
 		
@@ -288,7 +291,11 @@ config = {
 		}
 	},
 	timeRegex: new RegExp(/^([1-7]{1,1}d)?([1-9]{1,3}h)?([1-9]{1,5}m)?([1-9]{1,7}s)?$/g),
-	token
+	token,
+	emojis: {
+		yes: "bfdyes:414604312296030208",
+		no: "bfdno:414604345770770432"
+	}
 };
 
 module.exports=config;

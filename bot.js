@@ -197,8 +197,19 @@ client.on("guildMemberRemove", async(member) => {
 });*/
 
 client.on("message", async (message)=> {
-    if ((!message || !message.guild) || (!config.allowedGuilds.includes(message.guild.id) || message.author.bot || message.content.indexOf(config.prefix) === -1)) return;
-    var args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    if ((!message || !message.guild) || (!config.allowedGuilds.includes(message.guild.id) || message.author.bot)) return;
+	
+	if(message.channel.id === config.channels.suggestions) {
+		if(!message.content.startsWith("//")) {
+			message.react(config.emojis.yes);
+			message.react(config.emojis.no);
+			return;
+		}
+		return;
+	}
+
+	if(message.content.indexOf(config.prefix) === -1) return;
+	var args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     var command = args.shift().toLowerCase();
 	var staff = message.member.roles.some(t=>config.staffRoles.includes(t.id)) || message.member.hasPermission("ADMINISTRATOR");
 	
