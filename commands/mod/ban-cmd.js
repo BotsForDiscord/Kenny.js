@@ -38,7 +38,7 @@ module.exports=(async (message) => {
 	var modlog=message.guild.channels.find(t=>t.name=="mod-log");
 	if(modlog !== null) {
 		var e=constructModLog(message.author,member,command,reason);
-		if(!e instanceof Discord.RichEmbed) throw new Error("Function did not return RichEmbed");
+		if(!e instanceof Discord.MessageEmbed) throw new Error("Function did not return MessageEmbed");
 	}
 	
 	await member.user.send(`You were banned from **${message.guild.name}** (${message.guild.id} by **${message.author.tag}** (${message.author.id})\nReason: ${reason}`).catch(noerr=>null);
@@ -46,7 +46,7 @@ module.exports=(async (message) => {
 	.then(async()=>{
 		if(modlog !== null) {
 			var m=await modlog.send(e);
-			m.edit(new Discord.RichEmbed(m.embeds[0]).setFooter(`Case ID: ${m.id}`));
+			m.edit(new Discord.MessageEmbed(m.embeds[0]).setFooter(`Case ID: ${m.id}`));
 		}
 	}).then(async()=>{
 		message.reply(`Done. Check ${modlog}.`);

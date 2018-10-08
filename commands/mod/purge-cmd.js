@@ -34,8 +34,8 @@ module.exports=(async (message) => {
 			}
 		]
 	};
-	var embed = new Discord.RichEmbed(data);
+	var embed = new Discord.MessageEmbed(data);
 	
 	var m=await modlog.send(embed);
-	return m.edit(new Discord.RichEmbed(m.embeds[0]).setFooter(`Case ID: ${m.id}`));
+	return m.edit(new Discord.MessageEmbed(m.embeds[0]).setFooter(`Case ID: ${m.id}`));
 });

@@ -5,7 +5,7 @@
   "main": "bot.js",
   "dependencies": {
     "console-colors-2": "^1.0.2",
-    "discord.js": "^11.4.2",
+    "discord.js": "github:discordjs/discord.js#internal-sharding",
     "fs": "0.0.1-security",
     "prettytable": "^0.3.1",
     "rethinkdbdash": "^2.3.31",

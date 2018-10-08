@@ -167,6 +167,28 @@ config = {
 					aliases: [
 
 					]
+				},
+				aretheystaff : {
+					name: "**Are They Staff?**",
+					description: "determine if someone else is staff or not.",
+					get usage() {return `${config.prefix}aretheystaff`;},
+					permissions: [],
+					roles: [],
+					dev: false,
+					aliases: [
+
+					]
+				},
+				ping: {
+					name: "**Ping**",
+					description: "pong",
+					get usage() {return `${config.prefix}ping`;},
+					permissions: [],
+					roles: [],
+					dev: false,
+					aliases: [
+						"pong"
+					]
 				}
 			},
 			mod: {

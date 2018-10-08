@@ -18,7 +18,7 @@ module.exports=(async (message) => {
 	var data=Object.assign({},c);
 	if(data.fields[2].value === reason) return message.reply("Reason did not change.");
 	data.fields[2].value = reason;
-	var embed=new Discord.RichEmbed(data);
+	var embed=new Discord.MessageEmbed(data);
 	m.edit(embed).then(()=>{
 		message.reply("Done.");
 	}).catch(e=>{

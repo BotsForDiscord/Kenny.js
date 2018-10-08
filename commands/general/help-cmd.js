@@ -20,7 +20,7 @@ module.exports=(async (message) => {
 				}
 			]
 		};
-		var embed = new Discord.RichEmbed(data);
+		var embed = new Discord.MessageEmbed(data);
 		return message.channel.send(embed);
 	} else {
 		if(!["mod","moderation","dev","developer","general"].includes(args[0].toLowerCase())) return message.reply("Invalid command category");
@@ -48,7 +48,7 @@ module.exports=(async (message) => {
 						}
 					]
 				};
-				var embed = new Discord.RichEmbed(data);
+				var embed = new Discord.MessageEmbed(data);
 				return message.channel.send(embed).catch(e=>{
 					message.reply(`Failed to send help: ${e}`);
 				});
@@ -124,7 +124,7 @@ module.exports=(async (message) => {
 						inline: false
 					}]);
 				}*/
-				var embed = new Discord.RichEmbed(data);
+				var embed = new Discord.MessageEmbed(data);
 				return message.channel.send(embed).catch(e=>{
 					message.reply(`Failed to send help: ${e}`);
 				});
@@ -151,10 +151,18 @@ module.exports=(async (message) => {
 						name: "Am I Staff",
 						value: `Description: I don't know, are you? run this to quickly check.\nUsage: **${config.prefix}amistaff**`,
 						inline: false
+					},{
+						name: "Are They Staff",
+						value: `Description: I don't know, are they? run this to quickly check.\nUsage: **${config.prefix}aretheystaff**`,
+						inline: false
+					},{
+						name: "Ping",
+						value: `Description: Pong.\nUsage: **${config.prefix}ping**`,
+						inline: false
 					}
 					]
 				};
-				var embed = new Discord.RichEmbed(data);
+				var embed = new Discord.MessageEmbed(data);
 				return message.channel.send(embed).catch(e=>{
 					message.reply(`Failed to send help: ${e}`);
 				});

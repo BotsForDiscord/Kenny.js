@@ -1,6 +1,6 @@
 module.exports=((message)=>{
     if(!message) throw new Error("Message parameter is required.");
-    global.args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    global.args = message.content.slice(config.prefix.length).trim().split(/ +/g)||[];
     global.command = args.shift().toLowerCase();
 	global.staff = message.member.roles.some(t=>config.staffRoles.includes(t.id)) || message.member.hasPermission("ADMINISTRATOR");
 	

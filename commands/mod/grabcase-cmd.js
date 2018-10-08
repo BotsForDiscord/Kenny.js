@@ -32,6 +32,6 @@ module.exports=(async (message) => {
 	}
 	Object.assign(data.fields,c.fields);
 	Object.assign(data.fields,{name: "Debug", value: "```json\n"+util.inspect(modCase, {showHidden: true, depth:null})+"```", inline: false});
-	var embed=new Discord.RichEmbed(data);
+	var embed=new Discord.MessageEmbed(data);
 	message.channel.send(embed);
 });

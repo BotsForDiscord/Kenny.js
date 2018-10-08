@@ -40,7 +40,7 @@ module.exports=(async (message) => {
 			}
 		]
 	};
-	var embed = new Discord.RichEmbed(data);
+	var embed = new Discord.MessageEmbed(data);
 	message.channel.send(embed).catch(err => {
 		console.log(err);
 		message.author.send(`I could not return the result: ${err}`).catch(noerr=>null);

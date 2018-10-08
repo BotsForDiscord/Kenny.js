@@ -31,7 +31,7 @@ module.exports=(async (message) => {
 				}
 			]
 		};
-		var embed = new Discord.RichEmbed(data);
+		var embed = new Discord.MessageEmbed(data);
 		return message.channel.send(embed);
 	}
 	
