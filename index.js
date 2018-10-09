@@ -17,21 +17,23 @@ class Kenny extends Discord.Client {
 		this.PrettyTable = require("prettytable");
 		this.os = require("os");
 		this.XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-		Object.assign(this,handlers);
+		this.fs = require("fs");
+		/*Object.assign(this,handlers);
 		for(let key in this.events) {
 			this.on(key, ()=>{this.events[key](this)});
-		}
+		}*/
+		this.load.apply(this);
 	}
 	
 	function load() {
-		fs.readdir(`${process.cwd()}/handlers/events/`, (err, files) => {
+		this.fs.readdir(`${process.cwd()}/handlers/events/`, (err, files) => {
 		    if (err) return console.error(err);
 		    files.forEach(file => {
 				if (!file.endsWith(".js")) return;
 				const event = require(`./handlers/events/${file}`);
 				let eventName = file.split(".")[0];
 
-				client.on(eventName, event.bind(this));
+				this.on(eventName, event.bind(this));
 				delete require.cache[require.resolve(`./handlers/events/${file}`)];
 		    });
 		});
