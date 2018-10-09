@@ -35,29 +35,15 @@ module.exports=(async (message) => {
 		var embed = new Discord.MessageEmbed(data);
 		return message.channel.send(embed);
 	}
-	// member mention
-	if(message.mentions.members.first()) {
-		var member=message.mentions.members.first();
-	}
-	
-	// user ID
-	if(!isNaN(args[0]) && !(args.length == 0 || !args || message.mentions.members.first())) {
-		var member=message.guild.members.get(args[0]);
-	}
-	
-	// username
-	if(isNaN(args[0]) && args[0].indexOf("#") == -1 && !(args.length == 0 || !args || message.mentions.members.first())) {
-		var usr=client.users.find(t=>t.username==args[0]);
-		if(usr instanceof Discord.User) var member=message.guild.members.get(usr.id);
-	}
-	
-	// user tag
-	if(isNaN(args[0]) && args[0].indexOf("#") !== -1 && !message.mentions.members.first()) {
-		var usr=client.users.find(t=>t.tag==args[0]);
-		if(usr instanceof Discord.User) var member=message.guild.members.get(usr.id);
-	}
-	
-	if(!member) return message.reply("Please either provide a user ID, FULL USERNAME, or FULL USERNAME AND TAG.");
+	if (!args[0] || args.length < 1) return message.reply("Please provide a user MENTION, ID, USERNAME or USERNAME W/ DISCRIMINATOR");
+
+	let member;
+	//DEFINING MEMBER
+	if (message.mentions.members.first()) member = message.mentions.members.first(); //MENTION
+	else if (message.guild.members.get(args[0])) member = message.guild.members.get(args[0]); //ID
+	else if (message.guild.members.find(t=>t.username === args[0])) member = message.guild.members.find(t=>t.username === args[0]); //USERNAME
+	else if (message.guild.members.find(t=>t.tag === args[0])) member = message.guild.members.find(t=>t.tag === args[0]) //TAG
+	else return message.reply("User entered is invalid. Please provide a user MENTION, ID, USERNAME or USERNAME W/ DISCRIMINATOR"); //IF NOTHING TRIGGERED
 	
 	if(message.author.id == member.id) return message.reply(`You cannot ${command} yourself!`);
 	
