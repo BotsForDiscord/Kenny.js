@@ -2,7 +2,7 @@
  * Made by Donovan_DMC#1337 *
  *****************************/
 global.Discord = require("discord.js");
-global.client = new Discord.Client();
+global.client = new Discord.Client({disableEveryone:true});
 global.util = require("util");
 global.config = require("./config.js");
 global.logger = require("./utility/logger.js");
