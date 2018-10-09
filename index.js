@@ -13,7 +13,7 @@ class Kenny extends Discord.Client {
 		super(opt);
 		global.util = require("util");
 		this.config = config;
-		this.r = require("./db.js");
+		//this.r = require("./db.js");
 		this.PrettyTable = require("prettytable");
 		this.os = require("os");
 		this.XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
@@ -25,7 +25,8 @@ class Kenny extends Discord.Client {
 		this.load.apply(this);
 	}
 	
-	function load() {
+	load() {
+		console.log("load");
 		this.fs.readdir(`${process.cwd()}/handlers/events/`, (err, files) => {
 		    if (err) return console.error(err);
 		    files.forEach(file => {
@@ -33,9 +34,13 @@ class Kenny extends Discord.Client {
 				const event = require(`./handlers/events/${file}`);
 				let eventName = file.split(".")[0];
 
-				this.on(eventName, event.bind(this));
+				this.on(eventName, event.bind(null,this));
 				delete require.cache[require.resolve(`./handlers/events/${file}`)];
 		    });
 		});
 	}
 }
+
+const client = new Kenny({disableEveryone:true});
+
+client.login(config.token);

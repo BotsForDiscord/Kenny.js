@@ -1,5 +1,6 @@
 const fs = require("fs");
 const token = fs.readFileSync("./token.txt","UTF8");
+const betaToken = fs.readFileSync("./token-beta.txt","UTF8");
 const path = require("path");
 const os = require("os");
 
@@ -313,11 +314,11 @@ config = {
 		}
 	},
 	timeRegex: new RegExp(/^([1-7]{1,1}d)?([1-9]{1,3}h)?([1-9]{1,5}m)?([1-9]{1,7}s)?$/g),
-	token,
 	emojis: {
 		yes: "bfdyes:414604312296030208",
 		no: "bfdno:414604345770770432"
 	}
 };
 
+config.token = config.beta?betaToken:token;
 module.exports=config;
