@@ -3,12 +3,23 @@
  *****************************/
 
 const Discord = require("discord.js");
-const token = "";
+const config = require("config");
+const logger = require("./utility/logger.js");
 const handlers = require("./handlers");
 
 class Kenny extends Discord.Client {
 	constructor(options) {
-		let opt = options ? opt : {};
+		var opt = options || {};
 		super(opt);
+		global.util = require("util");
+		this.config = config;
+		this.r = require("./db.js");
+		this.PrettyTable = require("prettytable");
+		this.os = require("os");
+		this.XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+		Object.assign(this,handlers);
+		for(let key in this.events) {
+			this.on(key, ()=>{this.events[key](this)});
+		}
 	}
 }
