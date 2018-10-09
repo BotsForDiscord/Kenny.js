@@ -7,6 +7,11 @@ const config = require("./config");
 const logger = require("./utility/logger.js");
 //const handlers = require("./handlers");
 
+/**
+  * Main Class
+  *	@contructor
+  * @param {Object} options - object of Discord#Client options
+  */
 class Kenny extends Discord.Client {
 	constructor(options) {
 		var opt = options || {};
@@ -25,6 +30,9 @@ class Kenny extends Discord.Client {
 		this.load.apply(this);
 	}
 	
+	/**
+	  * Load Function
+	  */
 	load() {
 		console.log("load");
 		this.fs.readdir(`${process.cwd()}/handlers/events/`, (err, files) => {

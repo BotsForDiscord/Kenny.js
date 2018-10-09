@@ -70,3 +70,6 @@ devs-read.txt
 # config
 *config*
 token-beta.txt
+
+# jsdocs output
+out/
