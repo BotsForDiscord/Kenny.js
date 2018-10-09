@@ -5,7 +5,7 @@
 const Discord = require("discord.js");
 const config = require("config");
 const logger = require("./utility/logger.js");
-const handlers = require("./handlers");
+//const handlers = require("./handlers");
 
 class Kenny extends Discord.Client {
 	constructor(options) {
@@ -21,5 +21,19 @@ class Kenny extends Discord.Client {
 		for(let key in this.events) {
 			this.on(key, ()=>{this.events[key](this)});
 		}
+	}
+	
+	function load() {
+		fs.readdir(`${process.cwd()}/handlers/events/`, (err, files) => {
+		    if (err) return console.error(err);
+		    files.forEach(file => {
+				if (!file.endsWith(".js")) return;
+				const event = require(`./handlers/events/${file}`);
+				let eventName = file.split(".")[0];
+
+				client.on(eventName, event.bind(this));
+				delete require.cache[require.resolve(`./handlers/events/${file}`)];
+		    });
+		});
 	}
 }
