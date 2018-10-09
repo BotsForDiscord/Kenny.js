@@ -3,7 +3,7 @@
  *****************************/
 
 const Discord = require("discord.js");
-const config = require("config");
+const config = require("./config");
 const logger = require("./utility/logger.js");
 //const handlers = require("./handlers");
 
