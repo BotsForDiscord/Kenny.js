@@ -31,7 +31,7 @@ module.exports=(async (message) => {
 	
 	if(!member.bannable) return message.reply(`Sorry, I cannot ${command} ${member.user.tag}. Do they have higher roles than me? Do I have ${command} permission?`);
 	
-	if(member.highestRole.calculatedPosition >= message.member.highestRole.calculatedPosition && message.member.id !== message.guild.ownerID) return message.reply(`Sorry, you cannot ${command} ${member.user.tag} because their highest role is the same as, or higher than yours.`);
+	if(member.roles.highest.calculatedPosition >= message.member.roles.highest.calculatedPosition && message.member.id !== message.guild.ownerID) return message.reply(`Sorry, you cannot ${command} ${member.user.tag} because their highest role is the same as, or higher than yours.`);
 	var reason = args.slice(1).join(' ');
 	if(!reason) reason = "No reason provided";
 	

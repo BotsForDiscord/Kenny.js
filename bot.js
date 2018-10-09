@@ -31,6 +31,11 @@ global.constructModLog = ((author,member,act,reason)=>{
 			var action=targetIsBot?"Bot Banned":"Member Banned";
 			break;
 			
+		case "hackban":
+			var color = 14495300;
+			var action=targetIsBot?"Bot Hackbanned":"Member Hackbanned";
+			break;
+			
 		case "unban":
 			var color = 12616706;
 			var action=targetIsBot?"Bot Unbanned":"Member Unbanned";
@@ -46,7 +51,7 @@ global.constructModLog = ((author,member,act,reason)=>{
 			var action=targetIsBot?"Bot Unmuted":"Member Unmuted";
 			break;
 	}
-	var t=act=="unban"?`${target} (<@!${target}>)`:`${target.tag} (<@!${target.id}>)`;
+	var t = target instanceof Discord.GuildMember || target instanceof Discord.User?act=="unban"?`${target} (<@!${target}>)`:`${target.tag} (<@!${target.id}>)`:target;
 	var data = {
 		title: action,
 		timestamp: new Date().toISOString(),
@@ -69,7 +74,7 @@ global.constructModLog = ((author,member,act,reason)=>{
 			}
 		]
 	};
-	var embed = new Discord.RichEmbed(data);
+	var embed = new Discord.MessageEmbed(data);
 	
 	return embed;
 });
@@ -133,12 +138,12 @@ client.on("guildMemberAdd", async(member) => {
   switch(member.guild.id) {
 	  // staff
 	case "374074135506190349":
-		member.addRole(config.roles.staffServerBot,"Bot autorole");
+		member.roles.add(config.roles.staffServerBot,"Bot autorole");
 		break;
 	
 	// regular
 	case "374071874222686211":
-		member.addRole(config.roles.bot,"Bot autorole");
+		member.roles.add(config.roles.bot,"Bot autorole");
 		break;
   }
 			

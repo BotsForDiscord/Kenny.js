@@ -71,7 +71,11 @@ module.exports=(async (message) => {
 						inline: false
 					},{
 						name: ":briefcase: **GrabCase**",
-						value: `Description: Displays a case from <#${config.modLogs}>.\nUsage: **${config.prefix}grabcase <message/case id>**\nRequires **Trial Moderators**, **Moderators**, or **Staff** roles.`,
+						value: `Description: Displays a case from #mod-log.\nUsage: **${config.prefix}grabcase <message/case id>**\nRequires **Trial Moderators**, **Moderators**, or **Staff** roles.`,
+						inline: false
+					},{
+						name: ":briefcase: **Modlog**",
+						value: `Description: Send a custom modlog to #mod-log.\nUsage: **${config.prefix}modlog <user> <type:mute/unmute/kick/ban/unban/hackban> [reason]**\nRequires **Trial Moderators**, **Moderators**, or **Staff** roles.`,
 						inline: false
 					},{
 						name: ":loudspeaker: **Say**",

@@ -62,7 +62,7 @@ module.exports=(async (message) => {
 	
 	if(message.author.id == member.id) return message.reply(`You cannot ${command} yourself!`);
 	
-	if(member.highestRole.calculatedPosition >= message.member.highestRole.calculatedPosition && message.member.id !== message.guild.ownerID) return message.reply(`Sorry, you cannot ${command} ${member.user.tag} either because their highest role is the same as, or higher than yours.`);
+	if(member.roles.highest.calculatedPosition >= message.member.roles.highest.calculatedPosition && message.member.id !== message.guild.ownerID) return message.reply(`Sorry, you cannot ${command} ${member.user.tag} either because their highest role is the same as, or higher than yours.`);
 	var reason = args.slice(1).join(' ');
 	if(!reason) reason = "No reason provided";
 	

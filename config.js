@@ -205,13 +205,22 @@ config = {
 				},
 				grabcase: {
 					name: ":briefcase: **GrabCase**",
-					get description(){ return `Display a case from <#${config.modLogs}>`;},
+					get description(){ return `Display a case from #mod-log`;},
 					get usage() {return `${config.prefix}grabcase <message/case id>`;},
 					permissions: [],
 					roles: [],
 					dev: false,
 					aliases: [
-						"modlog"
+					]
+				},
+				modlog: {
+					name: ":briefcase: **Modlog**",
+					get description(){ return `Send a custom modlog to #mod-log`;},
+					get usage() {return `${config.prefix}modlog <user> <type:mute/unmute/kick/ban/unban/hackban> [reason]`;},
+					permissions: [],
+					roles: [],
+					dev: false,
+					aliases: [
 					]
 				},
 				say: {
